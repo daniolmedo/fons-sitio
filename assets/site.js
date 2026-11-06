@@ -252,7 +252,14 @@
     var btn = el.querySelector(".ff-send");
     btn.disabled = true;
     btn.textContent = "Enviando…";
-    function done() { s.step = 5; self.render(true); }
+    function done() {
+      // Evento para Tag Manager (sin datos personales): sirve para medir contactos por campaña.
+      try {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: "generate_lead", lead_tipo: data.tipo, lead_quien: data.quien || "", lead_tema: data.tema || "", lead_pagina: location.pathname });
+      } catch (e) {}
+      s.step = 5; self.render(true);
+    }
     if (!FONS_ENDPOINT) { this.preview = true; setTimeout(done, 400); return; }
     fetch(FONS_ENDPOINT, { method: "POST", mode: "no-cors", headers: { "Content-Type": "text/plain;charset=utf-8" }, body: JSON.stringify(data) })
       .then(done)
