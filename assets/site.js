@@ -4,7 +4,7 @@
 
   // Dirección del Apps Script que recibe el formulario (se completa al configurar Google Workspace).
   // Mientras esté vacía, el formulario funciona en modo vista previa y no envía nada.
-  var FONS_ENDPOINT = "";
+  var FONS_ENDPOINT = "https://script.google.com/macros/s/AKfycbx322vhZQkLqYQH44AheV5aopjGfseFN7mz_vLSVFItBtYkFe3BhpKUe_NKbex3sBmr/exec";
   var CORREO = "hola@fons.cl";
   var HORARIO = "lunes a viernes, de 9:00 a 17:00, salvo festivos";
   // Raíz del sitio, deducida de dónde se cargó este archivo (sirve igual en fons.cl y en la vista previa).
