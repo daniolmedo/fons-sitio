@@ -6,6 +6,7 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('fons_consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
 gtag('js', new Date());
 </script>
 <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M7PFMKXB"></script>
@@ -25,7 +26,7 @@ gtag('js', new Date());
 <main class="legal">
 
 <h1>Aviso legal</h1>
-<p class="fecha">Actualizado el 5 de noviembre de 2026</p>
+<p class="fecha">Actualizado el 6 de noviembre de 2026</p>
 
 <h2>Quiénes somos</h2>
 <p>Este sitio pertenece a Fons Consultores SpA, con domicilio en Badajoz 100, oficina 1014, Las Condes, Santiago. Contacto: <a href="mailto:hola@fons.cl">hola@fons.cl</a>.</p>

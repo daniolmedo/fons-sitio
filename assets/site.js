@@ -284,11 +284,76 @@
     if (location.hash === "#cargos") setTimeout(cargos, 50);
   }
 
+
+  /* ---------- Aviso de privacidad (consentimiento de medición) ---------- */
+  var CONSENT_KEY = "fons_consent";
+  function getConsent() { try { return localStorage.getItem(CONSENT_KEY); } catch (e) { return null; } }
+  function setConsent(v) {
+    try { localStorage.setItem(CONSENT_KEY, v); } catch (e) {}
+    try {
+      window.dataLayer = window.dataLayer || [];
+      if (typeof window.gtag === "function") window.gtag("consent", "update", { analytics_storage: v === "granted" ? "granted" : "denied" });
+      window.dataLayer.push({ event: "fons_consent", fons_consent: v });
+    } catch (e) {}
+  }
+  function setupConsent() {
+    var box = document.createElement("div");
+    box.className = "fons-consent";
+    box.setAttribute("role", "region");
+    box.setAttribute("aria-label", "Aviso de privacidad");
+    box.hidden = true;
+    document.body.appendChild(box);
+
+    function close() { box.hidden = true; box.innerHTML = ""; }
+    function simple() {
+      box.innerHTML =
+        '<p class="ck-t">Ayúdanos a mejorar este sitio</p>' +
+        '<p class="ck-p">Si aceptas, guardamos datos de tu visita para saber qué información es útil. Puedes cambiar de opinión cuando quieras.</p>' +
+        '<div class="ck-row"><button type="button" class="ck-btn ghost" data-v="denied">No, gracias</button><button type="button" class="ck-btn light" data-v="granted">Acepto</button></div>' +
+        '<p class="ck-links"><button type="button" class="ck-link" data-more>Ver detalles</button> · <a class="ck-link" href="/privacidad/">Privacidad</a></p>';
+      bind();
+    }
+    function details() {
+      var on = getConsent() === "granted";
+      box.innerHTML =
+        '<p class="ck-t">Tus preferencias de privacidad</p>' +
+        '<div class="ck-opt"><div><b>Necesarias</b><span>Hacen funcionar el sitio. Siempre activas.</span></div><span class="ck-sw on fix" aria-hidden="true"></span></div>' +
+        '<label class="ck-opt"><div><b>Medición</b><span>Google Analytics: qué páginas se leen y desde dónde llegan las visitas. No la usamos para publicidad.</span></div>' +
+        '<input type="checkbox" class="ck-check" id="fons-medicion"' + (on ? " checked" : "") + '><span class="ck-sw" aria-hidden="true"></span></label>' +
+        '<div class="ck-row"><button type="button" class="ck-btn ghost" data-v="denied">No, gracias</button><button type="button" class="ck-btn light" data-save>Guardar</button></div>' +
+        '<p class="ck-links"><a class="ck-link" href="/privacidad/">Privacidad</a></p>';
+      bind();
+    }
+    function bind() {
+      Array.prototype.forEach.call(box.querySelectorAll("[data-v]"), function (b) {
+        b.addEventListener("click", function () { setConsent(b.getAttribute("data-v")); close(); });
+      });
+      var more = box.querySelector("[data-more]");
+      if (more) more.addEventListener("click", details);
+      var save = box.querySelector("[data-save]");
+      if (save) save.addEventListener("click", function () {
+        setConsent(box.querySelector("#fons-medicion").checked ? "granted" : "denied"); close();
+      });
+    }
+    function open(full) { box.hidden = false; if (full) details(); else simple(); }
+
+    // Link en el pie de cada página para cambiar la elección
+    Array.prototype.forEach.call(document.querySelectorAll('footer a[href="/privacidad/"]'), function (a) {
+      var b = document.createElement("button");
+      b.type = "button"; b.className = "ck-foot"; b.textContent = "Tus preferencias de privacidad";
+      b.addEventListener("click", function () { open(true); });
+      a.parentNode.insertBefore(document.createTextNode(" · "), a.nextSibling);
+      a.parentNode.insertBefore(b, a.nextSibling.nextSibling);
+    });
+
+    if (!getConsent()) open(false);
+  }
+
   function ready(fn) { if (document.readyState !== "loading") fn(); else document.addEventListener("DOMContentLoaded", fn); }
   function setupRed() {
     if (!window.matchMedia("(min-width: 761px)").matches) return;
     Array.prototype.forEach.call(document.querySelectorAll("details.red"), function (d) { d.open = true; });
   }
 
-  ready(function () { setupMenu(); setupForms(); setupRed(); });
+  ready(function () { setupMenu(); setupForms(); setupRed(); setupConsent(); });
 })();

@@ -6,6 +6,7 @@
 window.dataLayer = window.dataLayer || [];
 function gtag(){dataLayer.push(arguments);}
 gtag('consent', 'default', {ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied', analytics_storage: 'denied', wait_for_update: 500});
+try { if (localStorage.getItem('fons_consent') === 'granted') gtag('consent', 'update', {analytics_storage: 'granted'}); } catch (e) {}
 gtag('js', new Date());
 </script>
 <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-M7PFMKXB"></script>
@@ -25,7 +26,7 @@ gtag('js', new Date());
 <main class="legal">
 
 <h1>Política de privacidad</h1>
-<p class="fecha">Vigente desde el 5 de noviembre de 2026</p>
+<p class="fecha">Vigente desde el 6 de noviembre de 2026</p>
 
 <p>En Fons cuidamos la información que nos confías. Aquí te contamos qué datos pedimos, para qué los usamos, con quién los compartimos y cómo puedes ejercer tus derechos.</p>
 
@@ -48,7 +49,7 @@ gtag('js', new Date());
 <p>Porque tú nos los entregas y aceptas esta política al enviar el formulario, y porque los necesitamos para responder a lo que nos pides antes de acordar un encargo.</p>
 
 <h2>Con quién los compartimos</h2>
-<p>Solo con los proveedores tecnológicos que usamos para operar: Google (correo, calendario y documentos de Google Workspace) y DigitalOcean (alojamiento del sitio). Ellos tratan los datos por encargo nuestro y bajo sus propias medidas de seguridad. Sus servidores pueden estar fuera de Chile.</p>
+<p>Solo con los proveedores tecnológicos que usamos para operar: Google (correo, calendario y documentos de Google Workspace, y Google Analytics si aceptas la medición) y DigitalOcean (alojamiento del sitio). Ellos tratan los datos por encargo nuestro y bajo sus propias medidas de seguridad. Sus servidores pueden estar fuera de Chile.</p>
 <p>Si un encargo requiere a un especialista de nuestra red, te lo pediremos antes de compartir tu información.</p>
 
 <h2>Cuánto tiempo los guardamos</h2>
@@ -59,7 +60,9 @@ gtag('js', new Date());
 <p>Si no quedas conforme con nuestra respuesta, puedes reclamar ante la Agencia de Protección de Datos Personales.</p>
 
 <h2>Cookies y medición</h2>
-<p>Este sitio no usa cookies de publicidad ni de seguimiento. Las fuentes y videos se sirven desde nuestro propio sitio. Si más adelante incorporamos herramientas de medición, lo indicaremos aquí antes de activarlas.</p>
+<p>Usamos Google Analytics, a través de Google Tag Manager, para saber cuántas personas visitan el sitio, qué páginas leen y si llegan desde un buscador o un aviso. Solo guardamos cookies de medición si las aceptas en el aviso de privacidad. Si las rechazas, Google recibe una señal sin identificadores que no permite reconocerte.</p>
+<p>No usamos cookies de publicidad. Si más adelante las usamos, te pediremos permiso por separado.</p>
+<p>Google conserva los datos de medición por 14 meses y puede tratarlos fuera de Chile. Puedes cambiar tu elección cuando quieras en "Tus preferencias de privacidad", al pie de cada página.</p>
 
 <h2>Seguridad</h2>
 <p>Usamos conexiones cifradas, cuentas individuales con verificación en dos pasos y acceso a la información solo para quienes necesitan intervenir en tu atención.</p>
