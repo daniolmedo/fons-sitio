@@ -290,3 +290,12 @@ button.fons-burger {
   .tl-item:not(:last-child) .tl-dot::after { bottom: -36px; }
   .tl-role { font-size: 19px; }
 }
+
+/* Banda del formulario: fondo "agua profunda" de respaldo.
+   En iPhone (WebKit) el SVG con filtro de desplazamiento a veces no se dibuja y el texto claro quedaba sobre fondo claro.
+   El degradado CSS va siempre debajo; en pantallas chicas se usa solo el degradado. */
+.fc-inner{background:linear-gradient(165deg,#0B0E10 0%,#141B1E 28%,#22323A 52%,#3E5A5F 72%,#6B6F62 86%,#C58C5A 96%,#E8C4A0 100%)}
+@media (max-width: 760px){
+  .fc-inner > svg{display:none}
+  .fc-inner{background:linear-gradient(180deg,#0B0E10 0%,#141B1E 30%,#22323A 55%,#3E5A5F 78%,#6B6F62 92%,#8A6F55 100%)}
+}
