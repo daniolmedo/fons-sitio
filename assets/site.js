@@ -162,7 +162,7 @@
     if (chosen.length) h += '<div class="ff-chosen">' + chosen.map(function (c) { return "<span>✓ " + esc(c) + "</span>"; }).join("") + "</div>";
 
     if (s.step === 1) {
-      h += '<span class="ff-q">¿Quién nos escribe?</span><div class="ff-opts">';
+      h += '<span class="ff-q">¿Para quién es la asesoría?</span><div class="ff-opts">';
       QUIEN.forEach(function (q) {
         h += '<button type="button" class="ff-opt" data-pick="quien" data-v="' + q.v + '">' + icon(q.ic) + '<span class="tx"><span class="t1">' + q.t1 + '</span><span class="t2">' + q.t2 + "</span></span></button>";
       });
