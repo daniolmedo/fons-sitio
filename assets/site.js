@@ -44,7 +44,7 @@
       var urg = document.createElement("a");
       urg.href = BASE + "funcionarios/#cargos";
       urg.className = "cta-alt";
-      urg.textContent = "Me notificaron cargos";
+      urg.textContent = "Tengo un plazo corriendo";
       menu.appendChild(urg);
     }
     document.body.appendChild(menu);
@@ -81,8 +81,7 @@
     institucion: ["Gestión de personas", "Sumarios y procedimientos", "Relación con asociaciones", "Capacitación", "Modernización o cambio", "Otra cosa"]
   };
   var PLAZOS = [
-    { v: "cargos", t1: "Sí, me notificaron cargos", t2: "Te llamamos dentro de 2 horas hábiles.", ic: "alerta", urgent: true },
-    { v: "otro", t1: "Hay otro plazo corriendo", t2: "Una fecha para responder o presentar algo.", ic: "reloj" },
+    { v: "cargos", t1: "Sí, tengo un plazo corriendo", t2: "Descargos, recursos, reclamos u otra gestión con fecha. Te contactamos dentro de 2 horas hábiles.", ic: "alerta", urgent: true },
     { v: "no", t1: "No por ahora", ic: "no" },
     { v: "nose", t1: "No estoy seguro", ic: "duda" }
   ];
@@ -150,7 +149,7 @@
     var s = this.s, h = "";
     var urgent = this.urgent();
     var top = '<div class="ff-top">' + (s.step > 1 && s.step < 5 ? '<button type="button" class="ff-back">← Atrás</button>' : "<span></span>") +
-      "<span>" + (s.step < 5 ? "Paso " + s.step + " de 4" : (urgent ? "Cargos notificados" : "Listo")) + "</span></div>";
+      "<span>" + (s.step < 5 ? "Paso " + s.step + " de 4" : (urgent ? "Atención prioritaria" : "Listo")) + "</span></div>";
     var bar = '<div class="ff-bar' + (urgent ? " urgent" : "") + '">';
     for (var i = 1; i <= 4; i++) bar += '<span class="' + (i <= Math.min(s.step, 4) ? "on" : "") + '"></span>';
     bar += "</div>";
@@ -180,16 +179,18 @@
       });
       h += '</div><span class="ff-note">Una citación a declarar no es lo mismo que una formulación de cargos. Si tienes dudas, elige "No estoy seguro".</span>';
     } else if (s.step === 4 && urgent) {
-      h += '<span class="ff-q">Te llamamos dentro de 2 horas hábiles.</span><span class="ff-sub">En horario de atención: ' + HORARIO + '. Solo necesitamos estos datos; ten a mano la notificación.</span>' +
+      h += '<span class="ff-q">Te contactamos dentro de 2 horas hábiles.</span><span class="ff-sub">En horario de atención: ' + HORARIO + '. Solo necesitamos estos datos.</span>' +
         '<div class="ff-fields">' +
-        '<label>¿Qué día te notificaron?<input type="date" name="fecha_notificacion" required></label>' +
+        '<label>¿Qué tienes que presentar? <span class="opt">Ej.: descargos, un recurso, un reclamo</span><input type="text" name="asunto" maxlength="120" required></label>' +
+        '<label>¿Cuándo vence el plazo?<input type="date" name="fecha_vencimiento" required></label>' +
+        '<label>¿Cuándo te notificaron? <span class="opt">(si aplica)</span><input type="date" name="fecha_notificacion"></label>' +
         '<label>¿A qué teléfono te llamamos?<input type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required></label>' +
         '<label>Tu nombre<input type="text" name="nombre" autocomplete="name" required></label>' +
         '<label>Institución donde trabajas <span class="opt">(para revisar que no tengamos conflicto de interés)</span><input type="text" name="institucion" autocomplete="organization" required></label>' +
         this.common() +
         "</div>" +
-        '<button type="submit" class="ff-send urgent">Pedir llamada</button><div class="ff-err" role="alert"></div>' +
-        '<span class="ff-note">Para cuidar tu información, no adjuntes el expediente. Te diremos cómo compartirlo si hace falta. Enviar este formulario no suspende tu plazo.</span>';
+        '<button type="submit" class="ff-send urgent">Pedir atención prioritaria</button><div class="ff-err" role="alert"></div>' +
+        '<span class="ff-note">Para cuidar tu información, no adjuntes el expediente. Te diremos cómo compartirlo si hace falta. Este primer contacto sirve para evaluar tu caso: no significa que aceptemos el encargo ni que alcancemos a preparar un escrito en ese tiempo. Enviar este formulario no suspende tu plazo.</span>';
     } else if (s.step === 4) {
       h += '<span class="ff-q">Cuéntanos tu caso.</span><span class="ff-sub">Te respondemos en 48 horas hábiles.</span>' +
         '<div class="ff-fields">' +
@@ -205,15 +206,15 @@
     } else if (s.step === 5) {
       if (urgent) {
         h += (enHorario()
-            ? '<span class="ff-q">Recibido. Te llamamos dentro de 2 horas hábiles.</span>'
-            : '<span class="ff-q">Recibido. Te llamamos a primera hora del próximo día hábil.</span><span class="ff-sub">Escribiste fuera del horario de atención (' + HORARIO + ').</span>') +
+            ? '<span class="ff-q">Recibido. Te contactamos dentro de 2 horas hábiles.</span>'
+            : '<span class="ff-q">Recibido. Te contactamos a primera hora del próximo día hábil.</span><span class="ff-sub">Escribiste fuera del horario de atención (' + HORARIO + ').</span>') +
           '<span class="ff-eyebrow">MIENTRAS TANTO</span><ul class="ff-done-list">' +
-          "<li>Ten a mano la notificación y anota la fecha y hora en que te la entregaron.</li>" +
+          "<li>Ten a mano la notificación o el documento con el plazo.</li>" +
           "<li>Si tienes una citación a declarar, no vayas sin preparación.</li>" +
           "<li>Enviar este formulario no suspende tu plazo.</li></ul>";
       } else {
         h += '<span class="ff-q">Recibido. Te respondemos en 48 horas hábiles.</span>' +
-          '<span class="ff-sub">Revisamos lo que nos cuentas. Si podemos ayudarte, te enviamos un link para conversar hasta 15 minutos con Piera, sin costo. Si no es algo que podamos tomar, te lo decimos.</span>' +
+          '<span class="ff-sub">Revisamos lo que nos cuentas. Si podemos ayudarte, te enviamos un link para agendar una conversación de hasta 15 minutos con Piera, sin costo. Si no es algo que podamos tomar, te lo decimos.</span>' +
           '<ul class="ff-done-list"><li>Si tienes un plazo en curso, enviar una consulta no lo suspende.</li><li>Si necesitas agregar algo, escríbenos a <a href="mailto:' + CORREO + '">' + CORREO + "</a>.</li></ul>";
       }
       if (this.preview) h += '<div class="ff-preview">Vista previa: el formulario todavía no está conectado, así que este mensaje no se envió.</div>';
@@ -247,6 +248,10 @@
       if (i.type === "checkbox") return;
       data[i.name] = i.value.trim();
     });
+    if (data.asunto) { // el backoffice y la planilla lo reciben dentro del mensaje
+      data.mensaje = "Plazo: " + data.asunto + ". Vence: " + (data.fecha_vencimiento || "?") + (data.mensaje ? ". " + data.mensaje : "");
+      delete data.asunto; delete data.fecha_vencimiento;
+    }
     if (data.sitio_web) { s.step = 5; this.render(true); return; } // bot
     delete data.sitio_web;
     var btn = el.querySelector(".ff-send");
@@ -266,7 +271,7 @@
       .catch(function () {
         btn.disabled = false;
         btn.textContent = self.urgent() ? "Pedir llamada" : "Enviar";
-        err.innerHTML = "No pudimos enviar tu mensaje. Escríbenos a <a href=\"mailto:" + CORREO + "\">" + CORREO + "</a>" + (self.urgent() ? " con el asunto \"Cargos notificados\"." : ".");
+        err.innerHTML = "No pudimos enviar tu mensaje. Escríbenos a <a href=\"mailto:" + CORREO + "\">" + CORREO + "</a>" + (self.urgent() ? " con el asunto \"Plazo corriendo\"." : ".");
       });
   };
 
