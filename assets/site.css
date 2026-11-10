@@ -362,3 +362,28 @@ button.fons-burger {
 @media (max-width: 1000px) { .sit-grid, .tpe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 680px) { .sit-grid, .tpe-grid { grid-template-columns: 1fr; } .pub-links span { width: 100%; text-align: center; } }
 @media (max-width: 520px) { .pub-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; border-radius: 22px; overflow: visible; } .pub-tabs button { padding: 12px 10px; } }
+
+/* ---------- Situaciones compactas (opción D) ---------- */
+.sit-comp { grid-template-columns: 1.15fr 1fr 1fr; gap: 20px; align-items: stretch; }
+.sc { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 10px; background: #FFFFFF; border: 1px solid #DED9CE; border-radius: 24px; padding: 26px 72px 26px 26px; color: #15171A; text-decoration: none; min-height: 210px; transition: border-color .15s, transform .15s; }
+.sc:hover { border-color: #15171A; }
+.sc:focus-visible { outline: 2px solid #C58C5A; outline-offset: 3px; }
+.sc h3 { margin: 0; font-family: "Manrope", system-ui, sans-serif; font-size: 21px; font-weight: 700; letter-spacing: -.03em; line-height: 1.15; }
+.sc p { margin: 0; font-size: 15.5px; line-height: 1.55; color: #3A3F45; }
+.sc .pub-tag { margin-bottom: 2px; }
+.sc-go { position: absolute; top: 20px; right: 20px; width: 38px; height: 38px; border-radius: 999px; border: 1px solid #DED9CE; display: flex; align-items: center; justify-content: center; font-size: 16px; transition: background .15s, color .15s; }
+.sc:hover .sc-go { background: #15171A; color: #F2EFE8; border-color: #15171A; }
+.sc-cta, .sc-rings { display: none; }
+.sc-otra { background: transparent; border: 1px dashed #C58C5A; }
+/* la destacada del público elegido */
+.sc.is-feat { grid-row: span 2; order: -1; padding: 34px 32px 260px; background: radial-gradient(ellipse 80% 50% at 50% 100%, rgba(232,196,160,.24), rgba(232,196,160,0) 70%), #0E0F12; color: #F2EFE8; border-color: #0E0F12; box-shadow: 0 30px 70px rgba(14,15,18,.22); }
+.sc.is-feat h3 { font-size: 27px; }
+.sc.is-feat p { font-size: 17px; color: #A39E94; }
+.sc.is-feat .pub-tag { color: #E8C4A0; background: rgba(232,196,160,.14); }
+.sc.is-feat .sc-go { display: none; }
+.sc.is-feat .sc-cta { display: block; margin-top: 8px; font-size: 15px; font-weight: 600; color: #E8C4A0; }
+.sc.is-feat .sc-rings { display: block; position: absolute; left: 50%; bottom: -200px; width: 420px; height: 420px; margin-left: -210px; border-radius: 50%; border: 1.5px dashed rgba(232,196,160,.55); box-shadow: 0 0 0 34px rgba(232,196,160,.035), 0 0 0 70px rgba(232,196,160,.025); pointer-events: none; }
+.sc.is-feat .sc-rings::after { content: ""; position: absolute; inset: 60px; border-radius: 50%; border: 1.5px dashed rgba(232,196,160,.35); }
+@media (max-width: 1000px) { .sit-comp { grid-template-columns: 1fr 1fr; } .sc.is-feat { grid-column: 1 / -1; grid-row: auto; padding-bottom: 200px; } }
+@media (max-width: 680px) { .sit-comp { grid-template-columns: 1fr; } .sc { min-height: 0; } .sc.is-feat { padding: 28px 24px 190px; } .sc.is-feat h3 { font-size: 24px; } }
+@media (max-width: 520px) { .pub-tabs { grid-template-columns: repeat(3, 1fr); border-radius: 999px; } .pub-tabs button { padding: 12px 4px; font-size: 13.5px; } }

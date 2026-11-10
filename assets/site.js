@@ -372,6 +372,7 @@
       Array.prototype.forEach.call(grid.children, function (c) {
         var p = (c.getAttribute("data-pub") || "").split(" ");
         c.hidden = v !== "todas" && p.indexOf(v) === -1;
+        c.classList.toggle("is-feat", (c.getAttribute("data-feat") || "").split(" ").indexOf(v) !== -1);
       });
       if (push) {
         var h = ""; for (var k in HASH) if (HASH[k] === v) h = "#" + k;
@@ -381,5 +382,6 @@
     tabs.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) pick(b.getAttribute("data-pub"), true); });
     var h = HASH[location.hash.replace("#", "")];
     if (h) pick(h, false);
+    else if (!tabs.querySelector('[data-pub="todas"]')) pick("asoc", false);
   })();
 })();
