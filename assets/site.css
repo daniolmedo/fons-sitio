@@ -338,10 +338,27 @@ button.fons-burger {
 .tpe-k { font-size: 12px; letter-spacing: .14em; font-weight: 600; color: #8A5A3C; }
 .tpe h2 { font-size: clamp(32px, 4.4vw, 52px); line-height: 1.05; letter-spacing: -.02em; margin: 0; font-weight: 600; }
 .tpe-sub { font-size: 18px; line-height: 1.5; color: #4A4D52; margin: 0 0 16px; max-width: 640px; }
-.tpe-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
-.tpe-card { background: #fff; border: 1px solid rgba(21,23,26,.1); border-radius: 18px; padding: 24px; display: flex; flex-direction: column; gap: 8px; min-height: 132px; }
-.tpe-card b { font-size: 19px; line-height: 1.25; font-weight: 600; }
-.tpe-card span { font-size: 15px; line-height: 1.5; color: #4A4D52; }
-.tpe-cta { align-self: flex-start; margin-top: 16px; background: #15171A; color: #F2EFE8; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; }
+.tpe-grid { list-style: none; margin: 0; padding: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.tpe-card { min-height: 420px; }
+.tpe-cta { align-self: flex-start; margin-top: 16px; background: transparent; border: 1px solid #15171A; color: #15171A; padding: 13px 22px; border-radius: 999px; text-decoration: none; font-weight: 600; font-size: 15px; }
 @media (max-width: 900px) { .tpe-grid { grid-template-columns: 1fr 1fr; } }
-@media (max-width: 560px) { .tpe { padding: 64px 16px; } .tpe-grid { grid-template-columns: 1fr; } .tpe-card { min-height: 0; } }
+@media (max-width: 560px) { .tpe { padding: 64px 16px; } .tpe-grid { grid-template-columns: 1fr; } .tpe-card { min-height: 380px; } }
+
+/* ---------- Situaciones por público ---------- */
+.pub-tag { align-self: flex-start; font-size: 12px; font-weight: 600; letter-spacing: .08em; text-transform: uppercase; color: #8A5A34; background: #F4F1EA; border-radius: 999px; padding: 5px 11px; margin-bottom: 4px; }
+.pub-tag.osc { color: #E8C4A0; background: rgba(232, 196, 160, .14); }
+.pub-tabs { display: inline-flex; align-self: flex-start; gap: 4px; padding: 5px; background: #ECE7DC; border-radius: 999px; max-width: 100%; overflow-x: auto; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
+.pub-tabs::-webkit-scrollbar { display: none; }
+.pub-tabs button { flex: 0 0 auto; font: 600 15px/1 "Manrope", system-ui, sans-serif; color: #3A3F45; background: transparent; border: 0; border-radius: 999px; padding: 12px 20px; cursor: pointer; }
+.pub-tabs button[aria-pressed="true"] { background: #15171A; color: #F2EFE8; }
+.pub-tabs button:focus-visible { outline: 2px solid #C58C5A; outline-offset: 2px; }
+.sit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; }
+.sit-grid > * { flex: none !important; margin-top: 0 !important; width: auto !important; }
+.sit-grid > [hidden] { display: none !important; }
+.pub-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 12px; margin-top: 56px; font-size: 16px; color: #3A3F45; }
+.pub-links span { margin-right: 4px; }
+.pub-links a { border: 1px solid #15171A; color: #15171A; border-radius: 999px; padding: 13px 22px; font-weight: 600; text-decoration: none; }
+.pub-links a:hover { background: #15171A; color: #F2EFE8; }
+@media (max-width: 1000px) { .sit-grid, .tpe-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+@media (max-width: 680px) { .sit-grid, .tpe-grid { grid-template-columns: 1fr; } .pub-links span { width: 100%; text-align: center; } }
+@media (max-width: 520px) { .pub-tabs { display: grid; grid-template-columns: 1fr 1fr; width: 100%; border-radius: 22px; overflow: visible; } .pub-tabs button { padding: 12px 10px; } }

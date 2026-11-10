@@ -361,4 +361,25 @@
   }
 
   ready(function () { setupMenu(); setupForms(); setupRed(); setupConsent(); });
+
+  /* ---------- situaciones: filtro por público ---------- */
+  (function () {
+    var tabs = document.querySelector(".pub-tabs"), grid = document.querySelector(".sit-grid");
+    if (!tabs || !grid) return;
+    var HASH = { asociaciones: "asoc", personas: "persona", instituciones: "inst" };
+    function pick(v, push) {
+      Array.prototype.forEach.call(tabs.querySelectorAll("button"), function (b) { b.setAttribute("aria-pressed", b.getAttribute("data-pub") === v ? "true" : "false"); });
+      Array.prototype.forEach.call(grid.children, function (c) {
+        var p = (c.getAttribute("data-pub") || "").split(" ");
+        c.hidden = v !== "todas" && p.indexOf(v) === -1;
+      });
+      if (push) {
+        var h = ""; for (var k in HASH) if (HASH[k] === v) h = "#" + k;
+        try { history.replaceState(null, "", location.pathname + h); } catch (e) {}
+      }
+    }
+    tabs.addEventListener("click", function (e) { var b = e.target.closest("button"); if (b) pick(b.getAttribute("data-pub"), true); });
+    var h = HASH[location.hash.replace("#", "")];
+    if (h) pick(h, false);
+  })();
 })();
