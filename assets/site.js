@@ -78,7 +78,7 @@
   var TEMAS = {
     dirigente: ["Decisión institucional", "Reunión con la autoridad", "Propuesta u observaciones", "Orientación a un asociado", "Gestión del directorio", "Otra cosa"],
     funcionario: ["Sumario o investigación sumaria", "Reclamo o recurso administrativo", "Término de funciones", "Calificaciones", "Carrera funcionaria o derechos", "Otra cosa"],
-    institucion: ["Gestión de personas", "Sumarios y procedimientos", "Relación con asociaciones", "Capacitación", "Modernización o cambio", "Otra cosa"]
+    institucion: ["Asesoría jurídica", "Gestión de personas, reclutamiento y selección", "Consultoría o proyecto institucional", "Capacitación o programa formativo", "Otro requerimiento"]
   };
   var PLAZOS = [
     { v: "cargos", t1: "Sí, mi plazo está corriendo", t2: "Descargos, recursos, reclamos u otra gestión con fecha. Te contactamos dentro de 2 horas hábiles.", ic: "alerta", urgent: true },
