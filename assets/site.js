@@ -386,4 +386,18 @@
     if (h) pick(h, false);
     else if (!tabs.querySelector('[data-pub="todas"]')) pick("asoc", false);
   })();
+
+  /* ---------- submenú: marca la sección visible ---------- */
+  (function () {
+    var nav = document.querySelector(".subnav");
+    if (!nav || !("IntersectionObserver" in window)) return;
+    var links = Array.prototype.slice.call(nav.querySelectorAll("a"));
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        links.forEach(function (a) { a.classList.toggle("on", a.getAttribute("href") === "#" + e.target.id); });
+      });
+    }, { rootMargin: "-45% 0px -50% 0px" });
+    links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); });
+  })();
 })();

@@ -443,3 +443,36 @@ button.fons-burger {
 .ins-exp.claro .ins-lead { color: #15171A !important; }
 .ins-exp > div { gap: 14px; }
 @media (max-width: 1000px) { .ins-grid.cinco { grid-template-columns: 1fr; } .ins-grid.cinco > .ins-card, .ins-grid.cinco > .ins-card:nth-child(4), .ins-grid.cinco > .ins-card:nth-child(5) { grid-column: auto; } }
+
+/* ---------- Ronda 6: hovers que no borran el texto ---------- */
+.tpe-cta { transition: background .15s, color .15s; }
+.tpe-cta:hover, .tpe-cta:focus-visible { background: #15171A; color: #F2EFE8; border-color: #15171A; }
+.sc, .sc:hover, .sc-otra:hover { color: #15171A; }
+.sc.is-feat, .sc.is-feat:hover { color: #F2EFE8; }
+.sc-otra:hover { border-style: solid; }
+.ins-link:hover { text-decoration: underline; color: #E8C4A0; }
+.ins-card summary:hover { color: #8A5A3C; }
+
+/* Capacitación como caluga (banner contenido) */
+.cap-banner { background: #F4F1EA; padding: 24px 24px 72px; }
+.cap-banner .tpe-in { max-width: 1232px; background: #F6E9DC; border: 1px solid #E8C4A0; border-radius: 28px; padding: 48px 56px;
+  display: grid; grid-template-columns: minmax(0, 1fr) auto; grid-template-areas: "k btn" "h btn" "p btn"; column-gap: 48px; row-gap: 12px; align-items: center; }
+.cap-banner .tpe-k { grid-area: k; }
+.cap-banner h2 { grid-area: h; font-size: clamp(28px, 3.2vw, 40px); }
+.cap-banner .tpe-sub { grid-area: p; margin: 0; max-width: 62ch; }
+.cap-banner .tpe-cta { grid-area: btn; margin: 0; align-self: center; background: #15171A; color: #F2EFE8; border-color: #15171A; }
+.cap-banner .tpe-cta:hover { background: #2A2B31; color: #F2EFE8; }
+@media (max-width: 800px) { .cap-banner .tpe-in { grid-template-columns: 1fr; grid-template-areas: "k" "h" "p" "btn"; padding: 32px 24px; } .cap-banner .tpe-cta { justify-self: start; margin-top: 8px; } }
+
+/* "Cómo trabajamos" como espacio definido */
+.bloque-def { background: #ECE7DC; border-radius: 28px; padding: 48px; scroll-margin-top: 80px; }
+@media (max-width: 800px) { .bloque-def { padding: 28px 20px; } }
+
+/* Submenú de la página de Piera */
+.subnav { position: sticky; top: 0; z-index: 30; background: rgba(244, 241, 234, .92); backdrop-filter: saturate(140%) blur(10px); -webkit-backdrop-filter: saturate(140%) blur(10px); border-bottom: 1px solid #DED9CE; }
+.subnav-in { max-width: 1280px; margin: 0 auto; padding: 10px 24px; display: flex; gap: 6px; overflow-x: auto; scrollbar-width: none; }
+.subnav-in::-webkit-scrollbar { display: none; }
+.subnav a { flex: 0 0 auto; min-height: 40px; display: inline-flex; align-items: center; padding: 0 16px; border-radius: 999px; font-size: 14px; font-weight: 600; color: #3A3F45; text-decoration: none; }
+.subnav a:hover { background: #ECE7DC; color: #15171A; }
+.subnav a.on { background: #15171A; color: #F2EFE8; }
+#piera, #trayectoria, #quienes-somos, #capacitacion { scroll-margin-top: 64px; }
