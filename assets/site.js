@@ -413,4 +413,26 @@
       });
     });
   })();
+
+  /* ---------- instituciones: selector de líneas de servicio (todas las tarjetas en la misma celda, mismo alto) ---------- */
+  (function () {
+    Array.prototype.forEach.call(document.querySelectorAll(".ib-tabs"), function (box) {
+      var tabs = box.querySelectorAll(".ib-tab");
+      function sel(t, foco) {
+        Array.prototype.forEach.call(tabs, function (o) {
+          var on = o === t; o.setAttribute("aria-selected", on ? "true" : "false"); o.tabIndex = on ? 0 : -1;
+          var p = document.getElementById(o.getAttribute("aria-controls")); if (p) p.hidden = !on;
+        });
+        if (foco) t.focus();
+      }
+      Array.prototype.forEach.call(tabs, function (t, i) {
+        t.addEventListener("click", function () { sel(t); });
+        t.addEventListener("keydown", function (e) {
+          var n = e.key === "ArrowDown" || e.key === "ArrowRight" ? 1 : e.key === "ArrowUp" || e.key === "ArrowLeft" ? -1 : 0;
+          if (n) { e.preventDefault(); sel(tabs[(i + n + tabs.length) % tabs.length], true); }
+        });
+      });
+      if (tabs.length) sel(tabs[0]);
+    });
+  })();
 })();
