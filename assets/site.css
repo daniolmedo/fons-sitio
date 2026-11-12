@@ -430,3 +430,16 @@ button.fons-burger {
 .ins-grid { align-items: start; }
 .ins-card { min-height: 260px; }
 @media (max-width: 900px) { .ins-card { min-height: 0; } }
+
+/* ---------- Asociaciones: cinco líneas ---------- */
+.ins-grid.cinco { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+.ins-grid.cinco > .ins-card { grid-column: span 2; }
+.ins-grid.cinco > .ins-card:nth-child(4), .ins-grid.cinco > .ins-card:nth-child(5) { grid-column: span 3; }
+.ins-lead { margin: 0; font-size: 17px !important; font-weight: 600; color: #15171A !important; line-height: 1.45 !important; flex: 0 !important; }
+.ins-intro { max-width: 900px; gap: 20px; }
+.ins-intro h2 { font-size: clamp(28px, 3.4vw, 42px); }
+.ins-intro p { margin: 0; font-size: 19px; line-height: 1.65; color: #3A3F45; }
+.ins-exp.claro p { color: #3A3F45; }
+.ins-exp.claro .ins-lead { color: #15171A !important; }
+.ins-exp > div { gap: 14px; }
+@media (max-width: 1000px) { .ins-grid.cinco { grid-template-columns: 1fr; } .ins-grid.cinco > .ins-card, .ins-grid.cinco > .ins-card:nth-child(4), .ins-grid.cinco > .ins-card:nth-child(5) { grid-column: auto; } }

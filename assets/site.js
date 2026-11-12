@@ -76,7 +76,7 @@
     { v: "institucion", t1: "Autoridad, jefatura o institución pública", t2: "Para tu gestión institucional o equipo", ic: "edificio" }
   ];
   var TEMAS = {
-    dirigente: ["Decisión institucional", "Reunión con la autoridad", "Propuesta u observaciones", "Orientación a un asociado", "Gestión del directorio", "Otra cosa"],
+    dirigente: ["Asesoría jurídica y estratégica", "Relaciones laborales y mesas con autoridades", "Carrera funcionaria y condiciones laborales", "Fortalecimiento y gestión de la asociación", "Capacitación y desarrollo de dirigentes", "Orientación sobre una situación particular", "Otro requerimiento"],
     funcionario: ["Sumario o investigación sumaria", "Reclamo o recurso administrativo", "Término de funciones", "Calificaciones", "Carrera funcionaria o derechos", "Otra cosa"],
     institucion: ["Asesoría jurídica", "Gestión de personas, reclutamiento y selección", "Consultoría o proyecto institucional", "Capacitación o programa formativo", "Otro requerimiento"]
   };
