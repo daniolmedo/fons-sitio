@@ -603,3 +603,72 @@ button.fons-burger {
 }
 .ft3-in { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 8px; color: #CFCAC0; text-decoration: none; font-weight: 600; }
 .ft3-in:hover { color: #F2EFE8; text-decoration: underline; }
+/* Blog (12 nov) */
+.bl-hero { background: radial-gradient(ellipse 50% 70% at 50% 0%, rgba(232,196,160,.28), rgba(232,196,160,0) 72%), #0E0F12; color: #F2EFE8; }
+.bl-hin { max-width: 880px; margin: 0 auto; padding: 72px 24px 80px; display: flex; flex-direction: column; gap: 20px; }
+.bl-mig { margin: 0; font-size: 14px; font-weight: 600; letter-spacing: .04em; color: #E8C4A0; }
+.bl-mig a { color: #E8C4A0; text-decoration: none; }
+.bl-mig a:hover { text-decoration: underline; color: #F2EFE8; }
+.bl-hero h1 { margin: 0; font-size: clamp(34px, 5vw, 56px); line-height: 1.06; letter-spacing: -.04em; font-weight: 700; }
+.bl-meta, .bl-sub { margin: 0; font-size: 16px; line-height: 1.6; color: #A39E94; }
+.bl-sub { font-size: 18px; color: #CFCAC0; max-width: 640px; }
+.bl-main { background: #F4F1EA; padding: 72px 24px 96px; }
+.bl-art { max-width: 720px; margin: 0 auto; color: #2A2E33; font-size: 18px; line-height: 1.7; }
+.bl-art p { margin: 0 0 20px; }
+.bl-art h2 { margin: 48px 0 14px; font-size: 26px; line-height: 1.25; letter-spacing: -.025em; font-weight: 700; color: #15171A; }
+.bl-art ul { margin: 0 0 20px; padding-left: 22px; display: flex; flex-direction: column; gap: 10px; }
+.bl-art li b, .bl-art p b { color: #15171A; }
+.bl-corto { background: #FFFFFF; border: 1px solid #DED9CE; border-left: 4px solid #C58C5A; border-radius: 16px; padding: 24px 28px; margin-bottom: 36px !important; font-size: 18px; }
+.bl-faq { display: flex; flex-direction: column; border-top: 1px solid #DED9CE; margin-bottom: 20px; }
+.bl-faq details { border-bottom: 1px solid #DED9CE; }
+.bl-faq summary { list-style: none; cursor: pointer; display: flex; justify-content: space-between; gap: 16px; align-items: center; padding: 20px 0; font-weight: 700; font-size: 18px; color: #15171A; line-height: 1.4; }
+.bl-faq summary::-webkit-details-marker { display: none; }
+.bl-faq summary svg { flex: none; color: #C58C5A; transition: transform .2s; }
+.bl-faq details[open] summary svg { transform: rotate(180deg); }
+.bl-faq details p { margin: 0 0 20px; }
+.bl-err { list-style: none; padding: 0 !important; }
+.bl-err li { position: relative; padding-left: 30px; }
+.bl-err li::before { content: ""; position: absolute; left: 0; top: 10px; width: 12px; height: 12px; border-radius: 50%; border: 2px solid #C58C5A; }
+.bl-cta { margin: 56px 0 40px; background: #0E0F12; color: #CFCAC0; border-radius: 24px; padding: 40px; position: relative; overflow: hidden; }
+.bl-cta h2 { margin: 0 0 14px !important; color: #F2EFE8 !important; }
+.bl-cta p { font-size: 17px; }
+.bl-btns { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 8px; }
+.bl-b1, .bl-b2 { display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; border-radius: 999px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .15s, color .15s; }
+.bl-b1 { background: #E8C4A0; color: #0E0F12; }
+.bl-b1:hover { background: #F2EFE8; color: #0E0F12; }
+.bl-b2 { border: 1px solid #3A3D42; color: #F2EFE8; }
+.bl-b2:hover { background: #F2EFE8; color: #0E0F12; }
+.bl-normas { border-top: 1px solid #DED9CE; padding-top: 24px; font-size: 15px; line-height: 1.6; }
+.bl-normas b { color: #15171A; }
+.bl-normas p { margin: 6px 0 0; }
+.bl-nota { color: #6B675F; font-size: 14px; }
+.bl-autor { display: flex; gap: 20px; align-items: center; margin: 40px 0 20px; padding: 24px; background: #FFFFFF; border: 1px solid #DED9CE; border-radius: 20px; }
+.bl-autor img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; object-position: center 20%; flex: none; }
+.bl-autor div { display: flex; flex-direction: column; gap: 4px; font-size: 15px; line-height: 1.5; }
+.bl-autor b { color: #15171A; font-size: 17px; }
+.bl-autor a { color: #8A5A3C; font-weight: 700; text-decoration: none; }
+.bl-autor a:hover { text-decoration: underline; }
+.bl-aviso { font-size: 14px !important; color: #6B675F; }
+.bl-grid { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 24px; align-items: stretch; }
+.bl-card { position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 14px; background: #FFFFFF; border: 1px solid #DED9CE; border-radius: 24px; padding: 36px; text-decoration: none; color: #3A3F45; transition: border-color .15s, transform .15s; }
+.bl-card:hover { border-color: #15171A; color: #3A3F45; }
+.bl-tag { align-self: flex-start; font-size: 12.5px; font-weight: 700; border-radius: 999px; padding: 6px 11px; background: #F6E9DC; color: #8A5A3C; }
+.bl-card h2 { margin: 0; font-size: 26px; line-height: 1.2; letter-spacing: -.025em; color: #15171A; }
+.bl-card p { margin: 0; font-size: 16px; line-height: 1.6; flex: 1; }
+.bl-cmeta { font-size: 14px; color: #6B675F; }
+.bl-leer { font-weight: 700; color: #8A5A3C; position: relative; z-index: 1; }
+.bl-ring { position: absolute; right: -90px; bottom: -110px; width: 240px; height: 240px; border-radius: 50%; border: 1.5px dashed rgba(197,140,90,.4); pointer-events: none; }
+.bl-ring::after { content: ""; position: absolute; inset: 40px; border-radius: 50%; border: 1.5px dashed rgba(197,140,90,.22); }
+.bl-link { display: inline-block; margin-top: 20px; }
+@media (max-width: 760px) {
+  .bl-hin { padding: 48px 16px 56px; }
+  .bl-main { padding: 48px 16px 72px; }
+  .bl-art { font-size: 17px; }
+  .bl-art h2 { font-size: 23px; margin-top: 40px; }
+  .bl-cta { padding: 28px 22px; }
+  .bl-grid { grid-template-columns: 1fr; }
+  .bl-card { padding: 26px; }
+}
+.bl-card p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
+.bl-link { align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; margin-top: 0; border: 1px solid #15171A; border-radius: 999px; color: #15171A; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .15s, color .15s; }
+.bl-link:hover { background: #15171A; color: #F2EFE8; }
