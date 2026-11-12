@@ -497,3 +497,17 @@ button.fons-burger {
 @media (max-width: 900px) { .ft1-grid { grid-template-columns: 1fr 1fr; } .ft1-marca { grid-column: 1 / -1; } }
 @media (max-width: 520px) { .ft1-grid { grid-template-columns: 1fr; } }
 .ft1-legal .ck-foot { text-decoration: none !important; font-size: inherit; }
+
+/* ---------- Footer opción 3 (preguntas + contacto + barra) ---------- */
+.ft3 { display: grid; grid-template-columns: minmax(0, 2fr) minmax(280px, 1fr); gap: 32px; align-items: start; }
+.ft3 .faq-foot { gap: 0 32px !important; }
+.ft3-card { background: #1F2025; border: 1px solid rgba(242,239,232,.08); border-radius: 20px; padding: 28px; display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; color: #CFCAC0; }
+.ft3-h { font-size: 14px; font-weight: 600; color: #E8C4A0; }
+.ft3-mail { font-size: 22px; font-weight: 700; color: #F2EFE8; text-decoration: none; }
+.ft3-mail:hover { text-decoration: underline; color: #F2EFE8; }
+.ft3-card .ft1-btn { margin-top: 10px; align-self: flex-start; }
+.ft3-bar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 16px 32px; border-top: 1px solid rgba(242,239,232,.12); padding-top: 28px; font-size: 14px; }
+.ft3-nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+.ft3-nav a { color: #CFCAC0; text-decoration: none; }
+.ft3-nav a:hover { color: #F2EFE8; text-decoration: underline; }
+@media (max-width: 900px) { .ft3 { grid-template-columns: 1fr; } .ft3 .faq-foot { grid-template-columns: 1fr !important; } .ft3-bar { flex-direction: column; align-items: flex-start; } }
