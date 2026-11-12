@@ -672,3 +672,19 @@ button.fons-burger {
 .bl-card p { display: -webkit-box; -webkit-line-clamp: 4; -webkit-box-orient: vertical; overflow: hidden; }
 .bl-link { align-self: flex-start; display: inline-flex; align-items: center; min-height: 48px; padding: 0 22px; margin-top: 0; border: 1px solid #15171A; border-radius: 999px; color: #15171A; font-weight: 700; font-size: 15px; text-decoration: none; transition: background .15s, color .15s; }
 .bl-link:hover { background: #15171A; color: #F2EFE8; }
+/* Blog: navegación (12 nov) */
+.bl-mig { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 16px; }
+.bl-volver { color: #E8C4A0; font-weight: 700; text-decoration: none; }
+.bl-volver:hover { color: #F2EFE8; text-decoration: underline; }
+.bl-hero .bl-tag { background: rgba(232,196,160,.14); color: #E8C4A0; text-decoration: none; letter-spacing: 0; }
+.bl-hero .bl-tag:hover { background: #E8C4A0; color: #0E0F12; }
+.bl-filtros { max-width: 1180px; margin: 0 auto 28px; display: flex; flex-wrap: wrap; gap: 8px; }
+.bl-chip { font: inherit; font-size: 15px; font-weight: 700; min-height: 44px; padding: 0 18px; border-radius: 999px; border: 1px solid #DED9CE; background: #FFFFFF; color: #15171A; cursor: pointer; transition: background .15s, border-color .15s; }
+.bl-chip:hover { border-color: #15171A; }
+.bl-chip[aria-pressed="true"] { background: #15171A; border-color: #15171A; color: #F2EFE8; }
+.bl-chip:focus-visible { outline: 2px solid #C58C5A; outline-offset: 2px; }
+.bl-card[hidden] { display: none; }
+.bl-mas { margin-top: 80px; padding-top: 56px; border-top: 1px solid #DED9CE; }
+.bl-mas-in { max-width: 1180px; margin: 0 auto; display: flex; flex-direction: column; gap: 28px; }
+.bl-mas-head { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 16px; }
+.bl-mas-head h2 { margin: 0; font-size: 32px; letter-spacing: -.03em; color: #15171A; }

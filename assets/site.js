@@ -435,4 +435,23 @@
       if (tabs.length) sel(tabs[0]);
     });
   })();
+
+  /* ---------- blog: filtro por tema (también desde ?tema=) ---------- */
+  (function () {
+    var box = document.querySelector(".bl-filtros"), lista = document.getElementById("bl-lista");
+    if (!box || !lista) return;
+    var chips = box.querySelectorAll(".bl-chip"), cards = lista.querySelectorAll(".bl-card");
+    function filtrar(t) {
+      Array.prototype.forEach.call(chips, function (c) { c.setAttribute("aria-pressed", c.getAttribute("data-tema") === t ? "true" : "false"); });
+      Array.prototype.forEach.call(cards, function (c) { c.hidden = !!t && c.getAttribute("data-tema") !== t; });
+    }
+    Array.prototype.forEach.call(chips, function (c) {
+      c.addEventListener("click", function () {
+        var t = c.getAttribute("data-tema"); filtrar(t);
+        try { history.replaceState(null, "", t ? "?tema=" + t : location.pathname); } catch (e) {}
+      });
+    });
+    var m = /[?&]tema=([a-z0-9-]+)/.exec(location.search);
+    if (m && box.querySelector('.bl-chip[data-tema="' + m[1] + '"]')) filtrar(m[1]);
+  })();
 })();
