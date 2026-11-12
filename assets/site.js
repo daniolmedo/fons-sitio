@@ -44,7 +44,7 @@
       var urg = document.createElement("a");
       urg.href = BASE + "funcionarios/#cargos";
       urg.className = "cta-alt";
-      urg.textContent = "Tengo un plazo corriendo";
+      urg.textContent = "Mi plazo está corriendo";
       menu.appendChild(urg);
     }
     document.body.appendChild(menu);
@@ -71,17 +71,17 @@
   }
 
   var QUIEN = [
-    { v: "dirigente", t1: "Dirigente de una asociación", t2: "Para todo el directorio", ic: "grupo" },
-    { v: "funcionario", t1: "Funcionario con un caso", t2: "Para ti o un socio", ic: "persona" },
-    { v: "institucion", t1: "Jefatura o institución", t2: "Para tu equipo", ic: "edificio" }
+    { v: "dirigente", t1: "Dirigente de una asociación de funcionarios", t2: "Para tus asociados o directorio", ic: "grupo" },
+    { v: "funcionario", t1: "Funcionario público", t2: "Para una situación o decisión que te afecte", ic: "persona" },
+    { v: "institucion", t1: "Autoridad, jefatura o institución pública", t2: "Para tu gestión institucional o equipo", ic: "edificio" }
   ];
   var TEMAS = {
-    dirigente: ["Reorganización o planta", "Sumario", "Mesa con la autoridad", "Directorio nuevo", "Maltrato o Ley Karin", "Otra cosa"],
-    funcionario: ["Sumario o investigación", "Calificaciones o concurso", "No renovación o desvinculación", "Maltrato o acoso", "Carrera o remuneraciones", "Otra cosa"],
+    dirigente: ["Decisión institucional", "Reunión con la autoridad", "Propuesta u observaciones", "Orientación a un asociado", "Gestión del directorio", "Otra cosa"],
+    funcionario: ["Sumario o investigación sumaria", "Reclamo o recurso administrativo", "Término de funciones", "Calificaciones", "Carrera funcionaria o derechos", "Otra cosa"],
     institucion: ["Gestión de personas", "Sumarios y procedimientos", "Relación con asociaciones", "Capacitación", "Modernización o cambio", "Otra cosa"]
   };
   var PLAZOS = [
-    { v: "cargos", t1: "Sí, tengo un plazo corriendo", t2: "Descargos, recursos, reclamos u otra gestión con fecha. Te contactamos dentro de 2 horas hábiles.", ic: "alerta", urgent: true },
+    { v: "cargos", t1: "Sí, mi plazo está corriendo", t2: "Descargos, recursos, reclamos u otra gestión con fecha. Te contactamos dentro de 2 horas hábiles.", ic: "alerta", urgent: true },
     { v: "no", t1: "No por ahora", ic: "no" },
     { v: "nose", t1: "No estoy seguro", ic: "duda" }
   ];
@@ -136,7 +136,7 @@
   };
 
   Form.prototype.goCargos = function () {
-    this.s = { step: 4, quien: "funcionario", tema: "Sumario o investigación", plazo: "cargos", direct: true };
+    this.s = { step: 4, quien: "funcionario", tema: "Sumario o investigación sumaria", plazo: "cargos", direct: true };
     this.render(true);
   };
 
@@ -181,9 +181,9 @@
     } else if (s.step === 4 && urgent) {
       h += '<span class="ff-q">Te contactamos dentro de 2 horas hábiles.</span><span class="ff-sub">En horario de atención: ' + HORARIO + '. Solo necesitamos estos datos.</span>' +
         '<div class="ff-fields">' +
-        '<label>¿Qué tienes que presentar? <span class="opt">Ej.: descargos, un recurso, un reclamo</span><input type="text" name="asunto" maxlength="120" required></label>' +
-        '<label>¿Cuándo vence el plazo?<input type="date" name="fecha_vencimiento" required></label>' +
-        '<label>¿Cuándo te notificaron? <span class="opt">(si aplica)</span><input type="date" name="fecha_notificacion"></label>' +
+        '<label>¿Qué decisión o actuación te notificaron? <span class="opt">Ej.: formulación de cargos, término de funciones, una sanción</span><input type="text" name="asunto" maxlength="120" required></label>' +
+        '<label>¿Cuándo te notificaron?<input type="date" name="fecha_notificacion" required></label>' +
+        '<label>¿Cuándo vence el plazo? <span class="opt">(si lo sabes)</span><input type="date" name="fecha_vencimiento"></label>' +
         '<label>¿A qué teléfono te llamamos?<input type="tel" name="telefono" autocomplete="tel" inputmode="tel" placeholder="+56 9 1234 5678" required></label>' +
         '<label>Tu nombre<input type="text" name="nombre" autocomplete="name" required></label>' +
         '<label>Institución donde trabajas <span class="opt">(para revisar que no tengamos conflicto de interés)</span><input type="text" name="institucion" autocomplete="organization" required></label>' +
@@ -249,7 +249,7 @@
       data[i.name] = i.value.trim();
     });
     if (data.asunto) { // el backoffice y la planilla lo reciben dentro del mensaje
-      data.mensaje = "Plazo: " + data.asunto + ". Vence: " + (data.fecha_vencimiento || "?") + (data.mensaje ? ". " + data.mensaje : "");
+      data.mensaje = "Notificación: " + data.asunto + (data.fecha_vencimiento ? ". Vence: " + data.fecha_vencimiento : "") + (data.mensaje ? ". " + data.mensaje : "");
       delete data.asunto; delete data.fecha_vencimiento;
     }
     if (data.sitio_web) { s.step = 5; this.render(true); return; } // bot
@@ -374,6 +374,8 @@
         c.hidden = v !== "todas" && p.indexOf(v) === -1;
         c.classList.toggle("is-feat", (c.getAttribute("data-feat") || "").split(" ").indexOf(v) !== -1);
       });
+      var tit = document.querySelector("[data-sit-h]"), btn = tabs.querySelector('[data-pub="' + v + '"]');
+      if (tit && btn && btn.getAttribute("data-h")) tit.textContent = btn.getAttribute("data-h");
       if (push) {
         var h = ""; for (var k in HASH) if (HASH[k] === v) h = "#" + k;
         try { history.replaceState(null, "", location.pathname + h); } catch (e) {}
