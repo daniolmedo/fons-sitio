@@ -601,3 +601,5 @@ button.fons-burger {
   .ib-etapas { gap: 24px; }
   .ib-etapas::before { display: none; }
 }
+.ft3-in { display: inline-flex; align-items: center; gap: 8px; align-self: flex-start; margin-top: 8px; color: #CFCAC0; text-decoration: none; font-weight: 600; }
+.ft3-in:hover { color: #F2EFE8; text-decoration: underline; }
