@@ -465,7 +465,7 @@ button.fons-burger {
 @media (max-width: 800px) { .cap-banner .tpe-in { grid-template-columns: 1fr; grid-template-areas: "k" "h" "p" "btn"; padding: 32px 24px; } .cap-banner .tpe-cta { justify-self: start; margin-top: 8px; } }
 
 /* "Cómo trabajamos" como espacio definido */
-.bloque-def { background: #ECE7DC; border-radius: 28px; padding: 48px; scroll-margin-top: 80px; }
+.bloque-def { background: #ECE7DC; border-radius: 28px; padding: 56px 56px 48px !important; scroll-margin-top: 80px; }
 @media (max-width: 800px) { .bloque-def { padding: 28px 20px; } }
 
 /* Submenú de la página de Piera */
