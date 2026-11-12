@@ -347,6 +347,7 @@
       var b = document.createElement("button");
       b.type = "button"; b.className = "ck-foot"; b.textContent = "Tus preferencias de privacidad";
       b.addEventListener("click", function () { open(true); });
+      if (a.parentNode.classList && a.parentNode.classList.contains("ft1-legal")) { a.parentNode.insertBefore(b, a.nextSibling); return; }
       a.parentNode.insertBefore(document.createTextNode(" · "), a.nextSibling);
       a.parentNode.insertBefore(b, a.nextSibling.nextSibling);
     });

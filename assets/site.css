@@ -476,3 +476,24 @@ button.fons-burger {
 .subnav a:hover { background: #ECE7DC; color: #15171A; }
 .subnav a.on { background: #15171A; color: #F2EFE8; }
 #piera, #trayectoria, #quienes-somos, #capacitacion { scroll-margin-top: 64px; }
+
+/* ---------- Footer en columnas (ronda 7) ---------- */
+.ft1 { border-top: 1px solid rgba(242,239,232,.12); padding-top: 56px; display: flex; flex-direction: column; gap: 32px; }
+.ft1-grid { display: grid; grid-template-columns: 1.5fr 1fr 1fr 1fr; gap: 40px; }
+.ft1-marca { display: flex; flex-direction: column; gap: 16px; align-items: flex-start; }
+.ft1-logo svg { height: 26px; width: auto; display: block; }
+.ft1-marca p { margin: 0; font-size: 15px; line-height: 1.55; color: #CFCAC0; max-width: 34ch; }
+.ft1-btn { display: inline-flex; align-items: center; min-height: 44px; padding: 0 20px; border-radius: 999px; background: #F2EFE8; color: #15171A; font-weight: 700; font-size: 14px; text-decoration: none; transition: background .15s; }
+.ft1-btn:hover { background: #E8C4A0; color: #15171A; }
+.ft1-col b { display: block; font-size: 14px; font-weight: 700; color: #F2EFE8; margin-bottom: 14px; }
+.ft1-col ul { list-style: none; margin: 0; padding: 0; display: flex; flex-direction: column; gap: 10px; font-size: 15px; color: #A39E94; }
+.ft1-col a, .ft1-legal a { color: #CFCAC0; text-decoration: none; }
+.ft1-col a:hover, .ft1-legal a:hover { color: #F2EFE8; text-decoration: underline; }
+.ft1-bar { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 24px; border-top: 1px solid rgba(242,239,232,.12); padding-top: 20px; font-size: 13.5px; color: #A39E94; }
+.ft1-legal { display: flex; flex-wrap: wrap; gap: 6px 20px; align-items: center; }
+.ft1-legal .ck-foot { background: none; border: 0; padding: 0; font: inherit; color: #CFCAC0; cursor: pointer; }
+.ft1-legal .ck-foot:hover { color: #F2EFE8; text-decoration: underline; }
+.ft1-nota { margin: -16px 0 0; font-size: 13px; color: #8F8A80; }
+@media (max-width: 900px) { .ft1-grid { grid-template-columns: 1fr 1fr; } .ft1-marca { grid-column: 1 / -1; } }
+@media (max-width: 520px) { .ft1-grid { grid-template-columns: 1fr; } }
+.ft1-legal .ck-foot { text-decoration: none !important; font-size: inherit; }
