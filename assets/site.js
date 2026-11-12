@@ -401,4 +401,16 @@
     }, { rootMargin: "-45% 0px -50% 0px" });
     links.forEach(function (a) { var t = document.querySelector(a.getAttribute("href")); if (t) io.observe(t); });
   })();
+
+  /* ---------- servicios: "Ver servicios" abre y cierra todas las tarjetas juntas, para que midan lo mismo ---------- */
+  (function () {
+    Array.prototype.forEach.call(document.querySelectorAll(".ins-grid"), function (grid) {
+      var ds = grid.querySelectorAll(".ins-card details");
+      Array.prototype.forEach.call(ds, function (d) {
+        d.addEventListener("toggle", function () {
+          Array.prototype.forEach.call(ds, function (o) { if (o !== d && o.open !== d.open) o.open = d.open; });
+        });
+      });
+    });
+  })();
 })();
