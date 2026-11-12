@@ -534,3 +534,16 @@ button.fons-burger {
 .ins-grid { align-items: stretch !important; }
 .ins-card { min-height: 0; }
 .ins-card > p:not(.ins-lead) { flex: 1; }
+/* Footer sin tarjeta de contacto: datos ordenados en la barra final (12 nov) */
+.ft3 { grid-template-columns: 1fr !important; }
+.ft3-bar { display: grid !important; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, .7fr); gap: 32px 48px; align-items: start !important; padding-top: 40px; }
+.ft3-marca { display: flex; flex-direction: column; gap: 8px; color: #A39E94; font-size: 14.5px; }
+.ft3-marca .ft1-logo { margin-bottom: 12px; }
+.ft3-mail { font-size: 18px !important; }
+.ft3-col { display: flex; flex-direction: column; gap: 10px; font-size: 14.5px; }
+.ft3-col b { font-size: 13px; font-weight: 600; color: #E8C4A0; margin-bottom: 4px; }
+.ft3-col a { color: #CFCAC0; text-decoration: none; }
+.ft3-col a:hover { color: #F2EFE8; text-decoration: underline; }
+.ft3-col .ft1-legal { flex-direction: column; align-items: flex-start; gap: 10px; }
+@media (max-width: 900px) { .ft3-bar { grid-template-columns: 1fr 1fr; } .ft3-marca { grid-column: 1 / -1; } }
+.ft3-bar .ft3-col { padding: 0 !important; background: none !important; border: 0 !important; position: static !important; }
